@@ -26,7 +26,7 @@ print "-" * 55
 #- Take note of the time we start processing this user request
 startProcess = datetime.now()
 
-#- Try
+#- Try to:
 try:
 	#- Look for open ports between 1 and 100
     for port in range(1,100):  
