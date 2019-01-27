@@ -62,7 +62,7 @@ except socket.error:
 #- Take note of the time we end processing this user request
 endProcess = datetime.now()
 
-#- Find how long it took to finish this request
+#- Find how long it took to finish this request, by subtracting the startProcess time from the endProcess time
 timeDifference =  endProcess - startProcess
 
 #- Let user know how long it took to finish their request
