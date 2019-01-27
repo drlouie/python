@@ -26,38 +26,38 @@ print "-" * 55
 #- Take note of the time we start processing this user request
 startProcess = datetime.now()
 
-#- Try to:
+#- Try
 try:
 	#- Look for open ports between 1 and 100
     for port in range(1,100):  
-		#- Initiate the socket for a connection
+	#- Initiate the socket for a connection
         connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		#- Check for open IP:port combo
+	#- Check for open IP:port combo
         result = connection.connect_ex((remoteMachineIP, port))
-		#- If result is 0
+	#- If result is 0
         if result == 0:
-			#- Print result to terminal
-            print "Port {}'s open" . format(port)
-		#- Close socket connection
+		#- Print result to terminal
+		print "Port {}'s open" . format(port)
+	#- Close socket connection
         connection.close()
 
 #- Exception: Process interrupted
 except KeyboardInterrupt:
-    print "You hit Ctrl + C"
+    	print "You hit Ctrl + C"
 	#- Exit gracefully
-    sys.exit()
+    	sys.exit()
 
 #- Exception: GetAddrInfo error
 except socket.gaierror:
-    print 'Could not resolve the hostname.'
+	print 'Could not resolve the hostname.'
 	#- Exit gracefully
-    sys.exit()
+	sys.exit()
 
 #- Exception: Unable to connect
 except socket.error:
-    print "No server connection available."
+	print "No server connection available."
 	#- Exit gracefully
-    sys.exit()
+	sys.exit()
 
 #- Take note of the time we end processing this user request
 endProcess = datetime.now()
