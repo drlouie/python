@@ -30,15 +30,17 @@ startProcess = datetime.now()
 try:
 	#- Look for open ports between 1 and 100
     for port in range(1,100):  
-	#- Initiate the socket for a connection
+		#- Initiate the socket for a connection
         connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	#- Check for open IP:port combo
+		#- Set a timeout for each connection attempt, set too low or too high will cause issues
+        connection.settimeout(0.05)
+		#- Check for open IP:port combo
         result = connection.connect_ex((remoteMachineIP, port))
-	#- If result is 0
+		#- If result is 0
         if result == 0:
-		#- Print result to terminal
-		print "Port {}'s open" . format(port)
-	#- Close socket connection
+			#- Print result to terminal
+			print "Port {}'s open" . format(port)
+		#- Close socket connection
         connection.close()
 
 #- Exception: Process interrupted
