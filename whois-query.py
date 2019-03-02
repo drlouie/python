@@ -63,5 +63,3 @@ DomainIpVerify  = socket.gethostbyname(domainName)
 if DomainIpVerify is not None:
 	#- Run a whoisQuery on domainName
 	whoisQuery(domainName)
-
-
